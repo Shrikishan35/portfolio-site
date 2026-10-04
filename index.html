@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shrikishan B | Pharmaceutical &amp; Healthcare Data Analytics</title>
+<meta name="description" content="Shrikishan B: M.Pharm (Pharmaceutics) graduate with a pharmaceutical research background, focused on healthcare data analytics with Python, SQL and Power BI.">
+<meta name="author" content="Shrikishan B">
+<meta name="robots" content="index, follow">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F6F8FA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0C1520" media="(prefers-color-scheme: dark)">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Shrikishan B">
+<meta property="og:title" content="Shrikishan B | Pharmaceutical &amp; Healthcare Data Analytics">
+<meta property="og:description" content="Shrikishan B: M.Pharm (Pharmaceutics) graduate with a pharmaceutical research background, focused on healthcare data analytics with Python, SQL and Power BI.">
+<meta property="og:image" content="og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Shrikishan B. Pharmaceutical research background. Healthcare data analytics focus.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shrikishan B | Pharmaceutical &amp; Healthcare Data Analytics">
+<meta name="twitter:description" content="Shrikishan B: M.Pharm (Pharmaceutics) graduate with a pharmaceutical research background, focused on healthcare data analytics with Python, SQL and Power BI.">
+<meta name="twitter:image" content="og-image.png">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Shrikishan B",
+  "email": "kishanpatel6089@gmail.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Bengaluru", "addressCountry": "IN" },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "Acharya & B.M. Reddy College of Pharmacy" },
+    { "@type": "CollegeOrUniversity", "name": "PES College of Pharmacy" }
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/in/shrikishan-b-2082722b5/",
+    "https://orcid.org/0009-0009-6014-6291"
+  ]
+}
+</script>
+<style>
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(assets/fonts/inter-latin-wght-normal.woff2) format('woff2')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:200 800;font-display:swap;src:url(assets/fonts/manrope-latin-wght-normal.woff2) format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:100 800;font-display:swap;src:url(assets/fonts/jetbrains-mono-latin-wght-normal.woff2) format('woff2')}
+/* Layout: single-column editorial page, a clinical-report grid. Hero pairs the thesis with a fact sheet.
+   Each project is one case study with a main column (problem, approach, findings) and a side column (record of facts). */
+:root{
+  color-scheme:light;
+  --bg:#F6F8FA;
+  --surface:#FFFFFF;
+  --ink:#0F1F33;
+  --muted:#566678;
+  --brand:#0B6E75;
+  --brand-strong:#08565B;
+  --on-brand:#FFFFFF;
+  --accent:#1A7FCB;
+  --tint:#E3F2F3;
+  --line:#DCE3EA;
+  --grid:rgba(15,31,51,.05);
+  --shadow:0 1px 2px rgba(15,31,51,.05),0 10px 28px rgba(15,31,51,.05);
+  --f-display:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0C1520;
+    --surface:#111D2A;
+    --ink:#E7EEF5;
+    --muted:#9AABBD;
+    --brand:#4CC0C8;
+    --brand-strong:#7AD3D9;
+    --on-brand:#06242A;
+    --accent:#6DB8F2;
+    --tint:#13313A;
+    --line:#223243;
+    --grid:rgba(231,238,245,.05);
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px rgba(0,0,0,.25);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0C1520;
+  --surface:#111D2A;
+  --ink:#E7EEF5;
+  --muted:#9AABBD;
+  --brand:#4CC0C8;
+  --brand-strong:#7AD3D9;
+  --on-brand:#06242A;
+  --accent:#6DB8F2;
+  --tint:#13313A;
+  --line:#223243;
+  --grid:rgba(231,238,245,.05);
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px rgba(0,0,0,.25);
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0}
+img{max-width:100%}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--f-body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3,h4{font-family:var(--f-display);line-height:1.15;letter-spacing:-.02em;text-wrap:balance;margin:0;font-weight:700}
+p{margin:0}
+ul,ol,dl,dd{margin:0;padding:0}
+li{list-style:none}
+a{color:var(--brand);text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{color:var(--brand-strong)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin-inline:auto;padding-inline:clamp(16px,4vw,32px)}
+.skip{position:absolute;left:16px;top:-60px;background:var(--brand);color:var(--on-brand);padding:8px 14px;border-radius:6px;z-index:50;text-decoration:none}
+.skip:focus{top:calc(env(safe-area-inset-top,0px) + 8px)}
+
+/* labels */
+.eyebrow{font:500 .75rem/1.2 var(--f-mono);letter-spacing:.09em;text-transform:uppercase;color:var(--brand)}
+.muted{color:var(--muted)}
+
+/* header */
+.site-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid transparent;transition:border-color .2s}
+@supports (background:color-mix(in srgb,red,blue)){
+  .site-header{background:color-mix(in srgb,var(--bg) 90%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+}
+.site-header.scrolled{border-bottom-color:var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
+.brand{font:700 1.05rem/1 var(--f-display);letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+.brand:hover{color:var(--ink)}
+.site-nav{display:flex;align-items:center;gap:6px}
+.site-nav a{color:var(--muted);text-decoration:none;font-size:.95rem;font-weight:500;padding:8px 12px;border-radius:8px;transition:color .15s,background .15s}
+.site-nav a:hover{color:var(--ink);background:var(--tint)}
+.site-nav a[aria-current="true"]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--brand)}
+.menu-btn{display:none;font:500 .9rem var(--f-body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 14px;cursor:pointer}
+.menu-btn:hover{background:var(--tint)}
+
+/* hero */
+.hero{position:relative;padding-block:clamp(40px,7vw,88px) clamp(48px,7vw,80px);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 85%);mask-image:linear-gradient(180deg,#000 0%,transparent 85%);pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.85fr);gap:clamp(28px,5vw,64px);align-items:center}
+.hero-copy{display:flex;flex-direction:column;gap:22px;animation:rise .6s ease both}
+.hero h1{font-size:clamp(2.1rem,5.2vw,3.5rem);font-weight:800;letter-spacing:-.03em}
+.hero h1 span{display:block;color:var(--brand)}
+.lede{font-size:clamp(1.05rem,1.8vw,1.25rem);color:var(--muted);max-width:34em}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 .95rem/1 var(--f-body);padding:13px 20px;border-radius:9px;text-decoration:none;border:1px solid var(--brand);transition:background .15s,color .15s,border-color .15s}
+.btn-primary{background:var(--brand);color:var(--on-brand)}
+.btn-primary:hover{background:var(--brand-strong);border-color:var(--brand-strong);color:var(--on-brand)}
+.btn-ghost{background:transparent;color:var(--brand)}
+.btn-ghost:hover{background:var(--tint);color:var(--brand-strong)}
+.btn .arrow{transition:transform .15s}
+.btn:hover .arrow{transform:translateX(3px)}
+
+.glance{background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:6px 24px 10px;animation:rise .6s .1s ease both}
+.glance h2{font:500 .75rem/1.2 var(--f-mono);letter-spacing:.09em;text-transform:uppercase;color:var(--muted);padding:16px 0 12px;border-bottom:1px solid var(--line)}
+.glance dl{display:grid}
+.glance .row{display:grid;grid-template-columns:104px minmax(0,1fr);gap:12px;padding:13px 0;border-bottom:1px solid var(--line);font-size:.95rem;line-height:1.45}
+.glance .row:last-child{border-bottom:0}
+dt{font:500 .72rem/1.5 var(--f-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+dd{min-width:0}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* sections */
+section.block{padding-block:clamp(52px,8vw,92px);border-top:1px solid var(--line)}
+.head{display:flex;flex-direction:column;gap:12px;margin-bottom:clamp(28px,4vw,44px);max-width:40em}
+.head h2{font-size:clamp(1.7rem,3.4vw,2.35rem)}
+.head p{color:var(--muted)}
+
+/* case study */
+.case{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+.case-main{padding:clamp(22px,3.4vw,40px);display:flex;flex-direction:column;gap:26px;min-width:0}
+.case-side{padding:clamp(22px,3.4vw,40px);background:var(--tint);border-left:1px solid var(--line);display:flex;flex-direction:column;gap:26px;min-width:0}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font:500 .72rem/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:6px;border:1px solid var(--line);color:var(--ink);background:var(--bg)}
+.tag.strong{background:var(--brand);border-color:var(--brand);color:var(--on-brand)}
+.case h3{font-size:clamp(1.45rem,2.6vw,1.95rem)}
+.case .sub{color:var(--muted);margin-top:8px;font-size:1.02rem}
+.case .lead{font-size:1.1rem}
+.case h4{font:500 .75rem/1.2 var(--f-mono);letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.case-main section{display:flex;flex-direction:column}
+.list{display:flex;flex-direction:column;gap:10px}
+.list li{position:relative;padding-left:20px}
+.list li::before{content:"";position:absolute;left:0;top:.72em;width:8px;height:2px;background:var(--brand)}
+.list b{font-weight:600}
+.found{display:flex;flex-direction:column;gap:12px}
+.found li{padding:14px 16px;border:1px solid var(--line);border-radius:10px;background:var(--bg);display:flex;gap:12px;align-items:baseline}
+.found li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--brand);transform:translateY(-1px)}
+.facts{display:grid}
+.facts .row{display:grid;gap:4px;padding:12px 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 12%,transparent);font-size:.95rem;line-height:1.5}
+.facts .row:first-child{padding-top:0}
+.facts .row:last-child{border-bottom:0;padding-bottom:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:400 .8rem/1 var(--f-mono);padding:7px 10px;border-radius:6px;background:var(--surface);border:1px solid var(--line);color:var(--ink)}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.stat b{font:800 1.7rem/1 var(--f-display);letter-spacing:-.02em;color:var(--brand);font-variant-numeric:tabular-nums}
+.stat span{font-size:.85rem;color:var(--muted);line-height:1.35}
+.result{padding:20px 22px;border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:10px;background:var(--bg);display:flex;flex-direction:column;gap:6px}
+.result b{font:800 clamp(1.7rem,3.4vw,2.35rem)/1.1 var(--f-display);letter-spacing:-.025em;color:var(--brand);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.result b i{font-style:normal;font-weight:600;color:var(--muted);font-size:.6em;padding-inline:.15em}
+.result span{color:var(--muted);font-size:.95rem}
+
+/* publications */
+.sub-head{margin-top:clamp(40px,6vw,64px);margin-bottom:20px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 20px}
+.sub-head h3{font-size:1.4rem}
+.pubs{border-top:1px solid var(--line)}
+.pub{display:grid;grid-template-columns:72px minmax(0,1fr);gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}
+.pub time{font:500 .85rem/1.9 var(--f-mono);color:var(--brand)}
+.pub h4{font:600 1.08rem/1.4 var(--f-display);letter-spacing:-.01em;margin-bottom:4px}
+.pub p{color:var(--muted);font-size:.95rem}
+
+/* bridge */
+.bridge{border:1px solid var(--line);border-radius:14px;background:var(--surface);overflow:hidden;box-shadow:var(--shadow)}
+.bridge-row{display:grid;grid-template-columns:150px minmax(0,1fr) minmax(0,1fr);border-bottom:1px solid var(--line)}
+.bridge-row:last-child{border-bottom:0}
+.bridge-row>*{padding:20px 24px;min-width:0}
+.bridge-row .theme{font:500 .75rem/1.6 var(--f-mono);letter-spacing:.09em;text-transform:uppercase;color:var(--brand);background:var(--tint)}
+.bridge-row .cell+.cell{border-left:1px solid var(--line)}
+.bridge-head{background:var(--bg)}
+.bridge-head>*{font:500 .75rem/1.4 var(--f-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding-block:14px}
+.bridge-row .cell::before{display:none}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+.skill{grid-column:span 2;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.skill.wide{grid-column:span 3}
+.skill h3{font-size:1.05rem}
+.learning{margin-top:20px;font-size:.95rem;color:var(--muted)}
+.learning b{font-family:var(--f-mono);font-weight:500;color:var(--ink)}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,5vw,72px)}
+.about .text{display:flex;flex-direction:column;gap:18px;max-width:40em}
+
+/* education */
+.edu{border-top:1px solid var(--line)}
+.edu li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}
+.edu .when{font:500 .85rem/1.7 var(--f-mono);color:var(--muted)}
+.edu h3{font-size:1.15rem;margin-bottom:4px}
+.edu p{color:var(--muted);font-size:.97rem}
+.edu .cg{font-family:var(--f-mono);font-size:.85rem;color:var(--ink)}
+.edu .kind{display:inline-block;font:500 .7rem/1 var(--f-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--brand);margin-bottom:8px}
+
+/* certifications */
+.certs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
+.cert{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.cert h3{font-size:1.1rem;line-height:1.3}
+.cert .issuer{font:500 .78rem/1.4 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--brand)}
+.cert p{color:var(--muted);font-size:.95rem}
+details{border-top:1px solid var(--line);padding-top:12px}
+summary{cursor:pointer;font-weight:600;font-size:.93rem;color:var(--brand);list-style:none;display:flex;align-items:center;gap:8px}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+";font:500 1.1rem/1 var(--f-mono);width:16px}
+details[open] summary::before{content:"\2212"}
+details ul{display:flex;flex-direction:column;gap:6px;margin-top:12px;font-size:.92rem;color:var(--muted)}
+details li{padding-left:16px;position:relative}
+details li::before{content:"";position:absolute;left:0;top:.7em;width:6px;height:1px;background:var(--muted)}
+
+/* clickable certificate card: the title link stretches over the card, the course list stays usable */
+.cert.linked{position:relative;transition:border-color .15s,box-shadow .15s}
+.cert.linked:hover{border-color:var(--brand);box-shadow:var(--shadow)}
+.cert.linked h3 a{color:inherit;text-decoration:none}
+.cert.linked h3 a::after{content:"";position:absolute;inset:0;border-radius:12px}
+.cert.linked:has(h3 a:focus-visible){outline:2px solid var(--accent);outline-offset:3px}
+.cert.linked h3 a:focus-visible{outline:none}
+.cert.linked details{position:relative;z-index:1}
+.orcid-link{font-weight:500;overflow-wrap:anywhere}
+
+/* email card */
+.email-card .v-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+.email-card .v{font-weight:600;overflow-wrap:anywhere;color:var(--brand)}
+.copy-btn{font:500 .8rem/1 var(--f-body);color:var(--brand);background:transparent;border:1px solid var(--brand);border-radius:7px;padding:7px 12px;cursor:pointer;transition:background .15s}
+.copy-btn:hover{background:var(--tint)}
+.copy-note{min-height:1.2em;font-size:.82rem;color:var(--muted)}
+
+/* contact */
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start}
+.contact .links{display:flex;flex-direction:column;gap:12px}
+.link-card{display:flex;flex-direction:column;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 22px;text-decoration:none;color:var(--ink);transition:border-color .15s,box-shadow .15s}
+.link-card:hover{border-color:var(--brand);box-shadow:var(--shadow);color:var(--ink)}
+.link-card .k{font:500 .72rem/1.4 var(--f-mono);letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.link-card .v{font-weight:600;overflow-wrap:anywhere;color:var(--brand)}
+footer{border-top:1px solid var(--line);padding-block:28px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;color:var(--muted);font-size:.9rem}
+
+/* responsive */
+@media (max-width:980px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr)}
+  .case{grid-template-columns:minmax(0,1fr)}
+  .case-side{border-left:0;border-top:1px solid var(--line)}
+  .skills{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .skill,.skill.wide{grid-column:auto}
+  .certs{grid-template-columns:minmax(0,1fr)}
+  .about,.contact{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:760px){
+  .menu-btn{display:inline-flex}
+  .site-nav{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:2px;padding:10px clamp(16px,4vw,32px) 16px;background:var(--bg);border-bottom:1px solid var(--line)}
+  .site-nav.open{display:flex}
+  .site-nav a{padding:12px}
+  .site-nav a[aria-current="true"]{box-shadow:none;background:var(--tint)}
+  .glance .row{grid-template-columns:minmax(0,1fr);gap:2px}
+  .bridge-head{display:none}
+  .bridge-row{grid-template-columns:minmax(0,1fr)}
+  .bridge-row>*{padding:16px 20px}
+  .bridge-row .cell+.cell{border-left:0;border-top:1px dashed var(--line)}
+  .bridge-row .cell::before{display:block;content:attr(data-side);font:500 .7rem/1.4 var(--f-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+  .pub{grid-template-columns:minmax(0,1fr);gap:4px}
+  .edu li{grid-template-columns:minmax(0,1fr);gap:6px}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:520px){
+  .skills{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero-copy,.glance{animation:none}
+  .btn .arrow{transition:none}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header" id="top">
+  <div class="wrap bar">
+    <a class="brand" href="#top">Shrikishan B</a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#research">Research</a>
+      <a href="#skills">Skills</a>
+      <a href="#about">Background</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">Shrikishan B &middot; Bengaluru, India</p>
+        <h1 id="hero-title">Pharmaceutical research background. <span>Healthcare data analytics focus.</span></h1>
+        <p class="lede">M.Pharm (Pharmaceutics) graduate analyzing data with Python, SQL and Power BI.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#work">View work <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/shrikishan-b-2082722b5/" target="_blank" rel="noopener noreferrer">LinkedIn <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+
+      <aside class="glance" aria-label="At a glance">
+        <h2>At a glance</h2>
+        <dl>
+          <div class="row"><dt>Focus</dt><dd>Pharmaceutical, healthcare, CRO, clinical research and life-sciences analytics</dd></div>
+          <div class="row"><dt>Education</dt><dd>M.Pharm, Pharmaceutics (2023&ndash;2025)</dd></div>
+          <div class="row"><dt>Tools</dt><dd>Python, SQL, Power BI, IBM Cognos Analytics</dd></div>
+          <div class="row"><dt>Certificate</dt><dd>IBM Data Analyst Professional Certificate</dd></div>
+          <div class="row"><dt>Research</dt><dd>2 publications in pharmaceutical journals</dd></div>
+          <div class="row"><dt>Learning</dt><dd>SAS</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Data analytics work -->
+  <section class="block" id="work" aria-labelledby="work-title">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Data analytics</p>
+        <h2 id="work-title">A large survey, cleaned, explored and turned into dashboards</h2>
+      </div>
+
+      <article class="case">
+        <div class="case-main">
+          <div class="tags">
+            <span class="tag strong">Capstone project</span>
+            <span class="tag">IBM Data Analyst Professional Certificate</span>
+          </div>
+          <div>
+            <h3>Stack Overflow Developer Survey Analysis</h3>
+            <p class="sub">Python &middot; IBM Cognos Analytics</p>
+          </div>
+          <p class="lead">Cleaned, transformed and analyzed 73,000+ survey responses, then presented the results in three IBM Cognos dashboard areas for a non-technical audience.</p>
+
+          <section>
+            <h4>Question</h4>
+            <p>What do the responses to a large developer survey show about technology use, employment and compensation?</p>
+          </section>
+
+          <section>
+            <h4>Approach</h4>
+            <ul class="list">
+              <li><b>Data cleaning and transformation</b> of the survey responses.</li>
+              <li><b>Exploratory data analysis</b> across the full set of responses.</li>
+              <li><b>Trend analysis</b> of technology, employment and compensation.</li>
+              <li><b>Dashboards</b> in IBM Cognos Analytics (three dashboard areas), applying data visualization principles to communicate findings clearly.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h4>Findings</h4>
+            <ul class="found">
+              <li>JavaScript was the most widely used programming language.</li>
+              <li>PostgreSQL was the leading database.</li>
+            </ul>
+          </section>
+        </div>
+
+        <aside class="case-side" aria-label="Project facts">
+          <div class="stats">
+            <div class="stat"><b>73,000+</b><span>survey responses analyzed</span></div>
+            <div class="stat"><b>3</b><span>Cognos dashboard areas</span></div>
+          </div>
+          <dl class="facts">
+            <div class="row"><dt>Type</dt><dd>Capstone project, IBM Data Analyst Professional Certificate</dd></div>
+            <div class="row"><dt>Dataset</dt><dd>Stack Overflow Developer Survey</dd></div>
+            <div class="row"><dt>Themes</dt><dd>Technology, employment and compensation trends</dd></div>
+            <div class="row"><dt>Tools</dt><dd><span class="chips"><span class="chip">Python</span><span class="chip">IBM Cognos Analytics</span></span></dd></div>
+            <div class="row"><dt>Methods</dt><dd><span class="chips"><span class="chip">Data cleaning</span><span class="chip">Data transformation</span><span class="chip">EDA</span><span class="chip">Data visualization</span></span></dd></div>
+          </dl>
+        </aside>
+      </article>
+    </div>
+  </section>
+
+  <!-- Research -->
+  <section class="block" id="research" aria-labelledby="research-title">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Pharmaceutical research</p>
+        <h2 id="research-title">Experimental design and regression modeling applied to a drug formulation</h2>
+      </div>
+
+      <article class="case">
+        <div class="case-main">
+          <div class="tags">
+            <span class="tag strong">Academic research</span>
+            <span class="tag">M.Pharm dissertation &middot; 2023&ndash;2025</span>
+          </div>
+          <div>
+            <h3>M.Pharm Research Case Study</h3>
+            <p class="sub">Formulation optimization using experimental design and regression-based statistical modeling</p>
+          </div>
+          <p class="lead">Applied Central Composite Design and a 3&sup2; factorial design, with regression-based statistical modeling, to optimize formulation parameters and predict outcomes.</p>
+
+          <div class="result" role="group" aria-label="Reported result">
+            <b>65.29% <i>vs</i> 51.69%</b>
+            <span>Reported improvement in drug permeation between optimized and baseline formulations.</span>
+          </div>
+
+          <section>
+            <h4>Approach</h4>
+            <ul class="list">
+              <li><b>Experimental design:</b> Central Composite Design (CCD) and 3&sup2; factorial design.</li>
+              <li><b>Statistical modeling:</b> regression-based models to optimize formulation parameters and predict outcomes.</li>
+              <li><b>Data analysis:</b> experimental data analyzed using statistical methods.</li>
+              <li><b>Literature review:</b> clinical and regulatory literature reviewed to support study design and interpretation.</li>
+              <li><b>Documentation:</b> accurate, audit-ready records maintained throughout.</li>
+            </ul>
+          </section>
+        </div>
+
+        <aside class="case-side" aria-label="Research facts">
+          <dl class="facts">
+            <div class="row"><dt>Type</dt><dd>M.Pharm dissertation</dd></div>
+            <div class="row"><dt>Period</dt><dd>2023&ndash;2025</dd></div>
+            <div class="row"><dt>Institution</dt><dd>Acharya &amp; B.M. Reddy College of Pharmacy, RGUHS</dd></div>
+            <div class="row"><dt>Domain</dt><dd><span class="chips"><span class="chip">Pharmaceutics</span><span class="chip">Pharmaceutical formulation</span><span class="chip">Novel drug delivery</span></span></dd></div>
+            <div class="row"><dt>Methods</dt><dd><span class="chips"><span class="chip">Central Composite Design</span><span class="chip">3&sup2; factorial design</span><span class="chip">Regression modeling</span><span class="chip">Experimental data analysis</span></span></dd></div>
+          </dl>
+        </aside>
+      </article>
+
+      <div class="sub-head" id="publications">
+        <h3>Publications</h3>
+        <a href="https://orcid.org/0009-0009-6014-6291" target="_blank" rel="noopener noreferrer" class="orcid-link">ORCID: 0009-0009-6014-6291</a>
+      </div>
+      <ul class="pubs">
+        <li class="pub">
+          <time datetime="2026">2026</time>
+          <div>
+            <h4>Eletriptan HBr-loaded SLN-Integrated Microneedles for Migraine Management</h4>
+            <p>Journal of Drug Targeting</p>
+          </div>
+        </li>
+        <li class="pub">
+          <time datetime="2025">2025</time>
+          <div>
+            <h4>Advances in Drug Delivery for Hyperpigmentation</h4>
+            <p>Cutaneous and Ocular Toxicology</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Bridge -->
+  <section class="block" aria-labelledby="bridge-title">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">How the two connect</p>
+        <h2 id="bridge-title">The same working habits, in the lab and in the dataset</h2>
+      </div>
+      <div class="bridge">
+        <div class="bridge-row bridge-head" aria-hidden="true">
+          <div></div>
+          <div>In the lab &middot; M.Pharm dissertation</div>
+          <div>In analytics &middot; certificate capstone</div>
+        </div>
+        <div class="bridge-row">
+          <div class="theme">Prepare</div>
+          <p class="cell" data-side="In the lab">Planned experiments with Central Composite Design and a 3&sup2; factorial design.</p>
+          <p class="cell" data-side="In analytics">Cleaned and transformed 73,000+ survey responses.</p>
+        </div>
+        <div class="bridge-row">
+          <div class="theme">Analyze</div>
+          <p class="cell" data-side="In the lab">Fitted regression-based models to optimize parameters and predict outcomes.</p>
+          <p class="cell" data-side="In analytics">Explored the data and analyzed technology, employment and compensation trends.</p>
+        </div>
+        <div class="bridge-row">
+          <div class="theme">Report</div>
+          <p class="cell" data-side="In the lab">Maintained accurate, audit-ready documentation.</p>
+          <p class="cell" data-side="In analytics">Built three dashboard areas for a non-technical audience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="block" id="skills" aria-labelledby="skills-title">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Skills</p>
+        <h2 id="skills-title">Analytics tools and scientific training</h2>
+      </div>
+      <div class="skills">
+        <div class="skill">
+          <h3>Data analytics</h3>
+          <div class="chips">
+            <span class="chip">Data cleaning</span><span class="chip">Data transformation</span><span class="chip">Exploratory data analysis</span><span class="chip">Statistical and regression-based analysis</span><span class="chip">Large-dataset analysis</span>
+          </div>
+        </div>
+        <div class="skill">
+          <h3>Programming</h3>
+          <div class="chips">
+            <span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Matplotlib</span>
+            <span class="chip">SQL</span><span class="chip">Joins</span><span class="chip">Subqueries</span><span class="chip">CTEs</span><span class="chip">Window functions</span><span class="chip">Aggregations</span><span class="chip">Views</span><span class="chip">Stored procedures</span><span class="chip">Performance tuning</span><span class="chip">Introductory data modeling</span>
+          </div>
+        </div>
+        <div class="skill">
+          <h3>BI and visualization</h3>
+          <div class="chips">
+            <span class="chip">Power BI</span><span class="chip">IBM Cognos Analytics</span><span class="chip">Dashboard development</span><span class="chip">Data visualization principles</span>
+          </div>
+        </div>
+        <div class="skill wide">
+          <h3>Pharmaceutical and research</h3>
+          <div class="chips">
+            <span class="chip">Pharmaceutics</span><span class="chip">Pharmaceutical formulation</span><span class="chip">Novel drug delivery</span><span class="chip">Design of Experiments (CCD, 3&sup2; factorial)</span><span class="chip">Experimental data analysis</span><span class="chip">Scientific literature review</span><span class="chip">Audit-ready documentation</span>
+          </div>
+        </div>
+        <div class="skill wide">
+          <h3>Supporting</h3>
+          <div class="chips">
+            <span class="chip">Analytical problem-solving</span><span class="chip">Communicating complex findings</span><span class="chip">Attention to detail</span><span class="chip">Generative AI concepts</span><span class="chip">Basic ML / AI awareness</span>
+          </div>
+        </div>
+      </div>
+      <p class="learning">Currently learning: <b>SAS</b></p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="block" id="about" aria-labelledby="about-title">
+    <div class="wrap about">
+      <div class="head" style="margin-bottom:0">
+        <p class="eyebrow">About</p>
+        <h2 id="about-title">From pharmaceutical research toward healthcare analytics</h2>
+      </div>
+      <div class="text">
+        <p>I am an M.Pharm (Pharmaceutics) graduate based in Bengaluru. My dissertation involved designing experiments, modeling experimental data with regression, and documenting the work to audit-ready standards.</p>
+        <p>That is data analysis in a scientific setting: choosing a design, fitting a model, checking what the data supports, and reporting it carefully. I have built on it with the IBM Data Analyst Professional Certificate and SQL coursework, and applied Python and IBM Cognos Analytics to a survey dataset of 73,000+ responses for my certificate capstone.</p>
+        <p>I am focused on analytics roles in pharmaceutical, healthcare, CRO, clinical research and life-sciences environments, where scientific context and careful handling of data both matter. I am currently learning SAS.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education and experience -->
+  <section class="block" aria-labelledby="edu-title">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Education and experience</p>
+        <h2 id="edu-title">Pharmacy degrees and a quality internship</h2>
+      </div>
+      <ul class="edu">
+        <li>
+          <div class="when">2023&ndash;2025</div>
+          <div>
+            <h3>M.Pharm, Pharmaceutics</h3>
+            <p>Acharya &amp; B.M. Reddy College of Pharmacy, RGUHS &middot; <span class="cg">CGPA 8.5</span></p>
+          </div>
+        </li>
+        <li>
+          <div class="when">2018&ndash;2022</div>
+          <div>
+            <h3>B.Pharm</h3>
+            <p>PES College of Pharmacy, RGUHS &middot; <span class="cg">CGPA 7.11</span></p>
+          </div>
+        </li>
+        <li>
+          <div class="when">Jan&ndash;Feb 2023</div>
+          <div>
+            <span class="kind">Internship</span>
+            <h3>Quality &amp; Documentation</h3>
+            <p>Overseas Pharma Pvt. Ltd., Bengaluru. Supported data accuracy checks and structured documentation within a regulated manufacturing environment.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section class="block" aria-labelledby="cert-title">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Certifications</p>
+        <h2 id="cert-title">Certificates and training</h2>
+      </div>
+      <div class="certs">
+        <article class="cert linked">
+          <p class="issuer">IBM / Coursera</p>
+          <h3><a href="https://coursera.org/verify/professional-cert/1J9UCJ4W0TL" target="_blank" rel="noopener noreferrer" title="Verify this certificate on Coursera (opens in a new tab)">IBM Data Analyst Professional Certificate</a></h3>
+          <p>Eleven courses covering data analytics, Excel, Python, SQL, data visualization, dashboards with Cognos, a capstone project and generative AI for analytics.</p>
+          <details>
+            <summary>View the 11 courses</summary>
+            <ul>
+              <li>Introduction to Data Analytics</li>
+              <li>Excel Basics for Data Analysis</li>
+              <li>Data Visualization and Dashboards with Excel and Cognos</li>
+              <li>Python for Data Science, AI &amp; Development</li>
+              <li>Python Project for Data Science</li>
+              <li>Databases and SQL for Data Science with Python</li>
+              <li>Data Analysis with Python</li>
+              <li>Data Visualization with Python</li>
+              <li>IBM Data Analyst Capstone Project</li>
+              <li>Generative AI: Enhance your Data Analytics Career</li>
+              <li>Data Analyst Career Guide and Interview Preparation</li>
+            </ul>
+          </details>
+        </article>
+        <article class="cert">
+          <p class="issuer">SQLNest</p>
+          <h3>SQL Beginner and Intermediate Courses</h3>
+          <div class="chips">
+            <span class="chip">Joins</span><span class="chip">GROUP BY</span><span class="chip">Subqueries</span><span class="chip">CTEs</span><span class="chip">Window functions</span><span class="chip">Recursive SQL</span><span class="chip">Pivoting</span><span class="chip">Materialized views</span><span class="chip">Stored procedures</span><span class="chip">User-defined functions</span><span class="chip">Performance tuning</span><span class="chip">Introductory data modeling</span>
+          </div>
+        </article>
+        <article class="cert">
+          <p class="issuer">Novartis</p>
+          <h3>Clinical Trials: Good Clinical Practice</h3>
+          <p>Completed as a training course in Good Clinical Practice.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="block" id="contact" aria-labelledby="contact-title">
+    <div class="wrap contact">
+      <div class="head" style="margin-bottom:0">
+        <p class="eyebrow">Contact</p>
+        <h2 id="contact-title">Get in touch</h2>
+        <p>I am looking for analyst roles in pharmaceutical, healthcare, CRO, clinical research and life-sciences settings. Email or LinkedIn is the best way to reach me.</p>
+      </div>
+      <div class="links">
+        <div class="link-card email-card">
+          <span class="k">Email</span>
+          <span class="v-row">
+            <a class="v" id="email-link" href="mailto:kishanpatel6089@gmail.com">kishanpatel6089@gmail.com</a>
+            <button class="copy-btn" id="copy-email" type="button" data-email="kishanpatel6089@gmail.com">Copy</button>
+          </span>
+          <span class="copy-note" id="copy-note" role="status" aria-live="polite"></span>
+        </div>
+        <a class="link-card" href="https://www.linkedin.com/in/shrikishan-b-2082722b5/" target="_blank" rel="noopener noreferrer">
+          <span class="k">LinkedIn</span>
+          <span class="v">linkedin.com/in/shrikishan-b-2082722b5</span>
+        </a>
+        <a class="link-card" href="https://orcid.org/0009-0009-6014-6291" target="_blank" rel="noopener noreferrer">
+          <span class="k">ORCID</span>
+          <span class="v">orcid.org/0009-0009-6014-6291</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Shrikishan B &middot; Bengaluru, India</span>
+    <span>M.Pharm (Pharmaceutics)</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var header = document.querySelector('.site-header');
+  function onScroll() { header.classList.toggle('scrolled', window.scrollY > 8); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var btn = document.getElementById('menu-btn');
+  var nav = document.getElementById('site-nav');
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(open));
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  if ('IntersectionObserver' in window) {
+    var links = {};
+    nav.querySelectorAll('a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting && links[en.target.id]) {
+          Object.keys(links).forEach(function (k) { links[k].removeAttribute('aria-current'); });
+          links[en.target.id].setAttribute('aria-current', 'true');
+        }
+      });
+    }, { rootMargin: '-35% 0px -60% 0px' });
+    Object.keys(links).forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+  }
+})();
+</script>
+<script>
+(function () {
+  var btn = document.getElementById('copy-email');
+  var note = document.getElementById('copy-note');
+  if (!btn) return;
+  function say(t) { note.textContent = t; setTimeout(function () { note.textContent = ''; }, 2500); }
+  function selectText() {
+    var a = document.getElementById('email-link');
+    var r = document.createRange(); r.selectNodeContents(a);
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    say('Selected. Copy it with Ctrl+C or a long press.');
+  }
+  btn.addEventListener('click', function () {
+    var email = btn.getAttribute('data-email');
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(email).then(function () { say('Copied'); }, selectText);
+    } else { selectText(); }
+  });
+})();
+</script>
+</body>
+</html>
