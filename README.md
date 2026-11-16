@@ -7,7 +7,7 @@ A static, single-page portfolio. No build step, no framework, no dependencies.
 | Path | Purpose |
 |---|---|
 | `index.html` | The whole site (HTML, CSS and a small amount of JavaScript) |
-| `assets/fonts/` | Self-hosted Inter, Manrope and JetBrains Mono (variable woff2, latin subset) with their licences |
+| `assets/fonts/` | Self-hosted Source Serif 4 and IBM Plex Sans (woff2, latin subset) with their licences |
 | `favicon.svg`, `favicon.ico`, `apple-touch-icon.png` | Favicon set |
 | `og-image.png` | 1200 x 630 image shown when the link is shared |
 | `vercel.json` | Security headers and cache rules |
