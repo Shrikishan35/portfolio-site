@@ -45,6 +45,7 @@
   ],
   "sameAs": [
     "https://www.linkedin.com/in/shrikishan-b-2082722b5/",
+    "https://github.com/Shrikishan35",
     "https://orcid.org/0009-0009-6014-6291"
   ]
 }
@@ -208,6 +209,21 @@ section.block{padding-block:clamp(52px,8vw,92px);border-top:1px solid var(--line
 .result b i{font-style:normal;font-weight:600;color:var(--muted);font-size:.6em;padding-inline:.15em}
 .result span{color:var(--muted);font-size:.95rem}
 
+/* project screenshots and repo link inside a case study */
+.case + .case{margin-top:28px}
+.case-shots{grid-column:1/-1;border-top:1px solid var(--line);padding:clamp(22px,3.4vw,40px);display:flex;flex-direction:column;gap:22px;min-width:0}
+.shot{margin:0;display:flex;flex-direction:column;gap:10px;min-width:0}
+.shot a{display:block;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;transition:border-color .15s,box-shadow .15s}
+.shot a:hover{border-color:var(--brand);box-shadow:var(--shadow)}
+.shot img{display:block;width:100%;height:auto}
+.shot figcaption{font-size:.9rem;color:var(--muted)}
+.shot.narrow{max-width:760px}
+.note{font-size:.92rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+.repo-link{display:flex;flex-direction:column;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--ink);transition:border-color .15s}
+.repo-link:hover{border-color:var(--brand);color:var(--ink)}
+.repo-link .k{font:500 .72rem/1.4 var(--f-mono);letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.repo-link .v{font-weight:600;color:var(--brand);overflow-wrap:anywhere;font-size:.92rem}
+
 /* publications */
 .sub-head{margin-top:clamp(40px,6vw,64px);margin-bottom:20px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 20px}
 .sub-head h3{font-size:1.4rem}
@@ -316,6 +332,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
   .pub{grid-template-columns:minmax(0,1fr);gap:4px}
   .edu li{grid-template-columns:minmax(0,1fr);gap:6px}
   .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .shot a{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .shot.wide img{width:760px;max-width:none}
 }
 @media (max-width:520px){
   .skills{grid-template-columns:minmax(0,1fr)}
@@ -356,6 +374,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
         <p class="lede">M.Pharm (Pharmaceutics) graduate analyzing data with Python, SQL and Power BI.</p>
         <div class="actions">
           <a class="btn btn-primary" href="#work">View work <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn-ghost" href="https://github.com/Shrikishan35" target="_blank" rel="noopener noreferrer">GitHub <span class="arrow" aria-hidden="true">&rarr;</span></a>
           <a class="btn btn-ghost" href="https://www.linkedin.com/in/shrikishan-b-2082722b5/" target="_blank" rel="noopener noreferrer">LinkedIn <span class="arrow" aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
@@ -367,7 +386,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
           <div class="row"><dt>Education</dt><dd>M.Pharm, Pharmaceutics (2023&ndash;2025)</dd></div>
           <div class="row"><dt>Tools</dt><dd>Python, SQL, Power BI, IBM Cognos Analytics</dd></div>
           <div class="row"><dt>Certificate</dt><dd>IBM Data Analyst Professional Certificate</dd></div>
-          <div class="row"><dt>Research</dt><dd>2 publications in pharmaceutical journals</dd></div>
+          <div class="row"><dt>Research</dt><dd>3 publications in pharmaceutical journals</dd></div>
           <div class="row"><dt>Learning</dt><dd>SAS</dd></div>
         </dl>
       </aside>
@@ -379,8 +398,94 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
     <div class="wrap">
       <div class="head">
         <p class="eyebrow">Data analytics</p>
-        <h2 id="work-title">A large survey, cleaned, explored and turned into dashboards</h2>
+        <h2 id="work-title">Company filings benchmarked and a large survey analyzed, both turned into dashboards</h2>
       </div>
+
+      <article class="case">
+        <div class="case-main">
+          <div class="tags">
+            <span class="tag strong">Portfolio project</span>
+            <span class="tag">FY2021&ndash;FY2025</span>
+          </div>
+          <div>
+            <h3>Global Pharmaceutical Company Benchmarking: Eli Lilly vs Pfizer</h3>
+            <p class="sub">Python &middot; Pandas &middot; Power BI &middot; SEC filings</p>
+          </div>
+          <p class="lead">Extracted five years of financial and product revenue data from SEC filings, cleaned and validated it in Python, and built two Power BI dashboards comparing growth, profitability, R&amp;D spend and product concentration.</p>
+
+          <div class="result" role="group" aria-label="Headline result">
+            <b>23.17% <i>vs</i> &minus;6.33%</b>
+            <span>Five-year revenue CAGR, Eli Lilly vs Pfizer, FY2021&ndash;FY2025 (revenue of $28.32B to $65.18B for Lilly, $81.29B to $62.58B for Pfizer).</span>
+          </div>
+
+          <section>
+            <h4>Question</h4>
+            <p>How do two large pharmaceutical companies compare on growth, profitability and reliance on a few products, and what explains the difference?</p>
+          </section>
+
+          <section>
+            <h4>Approach</h4>
+            <ul class="list">
+              <li><b>Data extraction</b> from SEC filings and annual reports using Python, with company-level CSV datasets as the output.</li>
+              <li><b>Cleaning and transformation</b> in Pandas, with extracted revenue totals validated against company-reported figures.</li>
+              <li><b>Metrics</b> for revenue growth, net profit margin, R&amp;D expenditure, operating cash flow and product revenue concentration.</li>
+              <li><b>Two Power BI dashboards</b>: financial performance, and product and portfolio analysis.</li>
+              <li><b>A five-slide presentation</b> summarizing the business implications.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h4>Findings</h4>
+            <ul class="found">
+              <li>Eli Lilly&rsquo;s FY2025 net profit margin was 31.67%, against 12.42% for Pfizer.</li>
+              <li>Mounjaro and Zepbound together made up about 56% of Lilly&rsquo;s FY2025 revenue, and its top five products about 77.5%. For Pfizer the top five were about 47.9%.</li>
+              <li>Pfizer&rsquo;s revenue fell after the COVID-related sales of FY2021&ndash;FY2022, while Oncology and Specialty Care grew their share of its portfolio.</li>
+            </ul>
+          </section>
+
+          <p class="note">Data notes: Lilly&rsquo;s therapeutic-area categories and Pfizer&rsquo;s commercial portfolio categories are different classification systems and are not directly comparable. Pfizer R&amp;D here excludes acquired in-process R&amp;D.</p>
+        </div>
+
+        <aside class="case-side" aria-label="Project facts">
+          <div class="stats">
+            <div class="stat"><b>5 yrs</b><span>FY2021&ndash;FY2025 compared</span></div>
+            <div class="stat"><b>2</b><span>Power BI dashboards</span></div>
+          </div>
+          <dl class="facts">
+            <div class="row"><dt>Type</dt><dd>Independent portfolio project</dd></div>
+            <div class="row"><dt>Data</dt><dd>SEC filings (XBRL) and company annual reports</dd></div>
+            <div class="row"><dt>Deliverables</dt><dd>Python notebooks, CSV datasets, two Power BI dashboards, five-slide presentation</dd></div>
+            <div class="row"><dt>Tools</dt><dd><span class="chips"><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">Jupyter</span><span class="chip">Power BI</span></span></dd></div>
+            <div class="row"><dt>Methods</dt><dd><span class="chips"><span class="chip">Data extraction</span><span class="chip">Data validation</span><span class="chip">CAGR and margin analysis</span><span class="chip">Product concentration</span></span></dd></div>
+          </dl>
+          <a class="repo-link" href="https://github.com/Shrikishan35/Global-pharmaceutical-company-benchmarking" target="_blank" rel="noopener noreferrer">
+            <span class="k">Code and data</span>
+            <span class="v">github.com/Shrikishan35/Global-pharmaceutical-company-benchmarking</span>
+          </a>
+        </aside>
+
+        <div class="case-shots">
+          <h4>Dashboards</h4>
+          <figure class="shot">
+            <a href="assets/projects/pharma-financial-dashboard.png" target="_blank" rel="noopener noreferrer" aria-label="Open the financial performance dashboard at full size">
+              <img src="assets/projects/pharma-financial-dashboard.png" width="1136" height="643" loading="lazy" decoding="async" alt="Power BI dashboard comparing Eli Lilly and Pfizer on revenue CAGR, FY2025 net profit margin, and yearly revenue, net profit margin, R&amp;D expenditure and operating cash flow from 2021 to 2025.">
+            </a>
+            <figcaption>Dashboard 1: financial performance, Eli Lilly vs Pfizer.</figcaption>
+          </figure>
+          <figure class="shot wide">
+            <a href="assets/projects/pharma-portfolio-mix.png" target="_blank" rel="noopener noreferrer" aria-label="Open the portfolio mix charts at full size">
+              <img src="assets/projects/pharma-portfolio-mix.png" width="1800" height="365" loading="lazy" decoding="async" alt="Two stacked bar charts of revenue mix from 2021 to 2025: Eli Lilly by therapeutic area, where cardiometabolic health grows to the largest share, and Pfizer by commercial portfolio of oncology, primary care and specialty care.">
+            </a>
+            <figcaption>Dashboard 2: revenue mix by therapeutic area (Lilly) and by commercial portfolio (Pfizer).</figcaption>
+          </figure>
+          <figure class="shot wide">
+            <a href="assets/projects/pharma-top10-products.png" target="_blank" rel="noopener noreferrer" aria-label="Open the top products charts at full size">
+              <img src="assets/projects/pharma-top10-products.png" width="1800" height="365" loading="lazy" decoding="async" alt="Bar charts of top revenue-generating products in FY2025: Mounjaro and Zepbound lead for Eli Lilly, and Eliquis, Prevnar family and Vyndaqel family lead for Pfizer.">
+            </a>
+            <figcaption>Dashboard 2: top revenue-generating products by company, with a year filter (FY2025 shown).</figcaption>
+          </figure>
+        </div>
+      </article>
 
       <article class="case">
         <div class="case-main">
@@ -491,6 +596,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
         <li class="pub">
           <time datetime="2026">2026</time>
           <div>
+            <h4>Intranasal Eletriptan-Loaded SLN Gel</h4>
+            <p>Journal of Liposome Research</p>
+          </div>
+        </li>
+        <li class="pub">
+          <time datetime="2026">2026</time>
+          <div>
             <h4>Eletriptan HBr-loaded SLN-Integrated Microneedles for Migraine Management</h4>
             <p>Journal of Drug Targeting</p>
           </div>
@@ -555,7 +667,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
         <div class="skill">
           <h3>Programming</h3>
           <div class="chips">
-            <span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Matplotlib</span>
+            <span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Matplotlib</span><span class="chip">Requests (API data extraction)</span>
             <span class="chip">SQL</span><span class="chip">Joins</span><span class="chip">Subqueries</span><span class="chip">CTEs</span><span class="chip">Window functions</span><span class="chip">Aggregations</span><span class="chip">Views</span><span class="chip">Stored procedures</span><span class="chip">Performance tuning</span><span class="chip">Introductory data modeling</span>
           </div>
         </div>
@@ -591,7 +703,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
       </div>
       <div class="text">
         <p>I am an M.Pharm (Pharmaceutics) graduate based in Bengaluru. My dissertation involved designing experiments, modeling experimental data with regression, and documenting the work to audit-ready standards.</p>
-        <p>That is data analysis in a scientific setting: choosing a design, fitting a model, checking what the data supports, and reporting it carefully. I have built on it with the IBM Data Analyst Professional Certificate and SQL coursework, and applied Python and IBM Cognos Analytics to a survey dataset of 73,000+ responses for my certificate capstone.</p>
+        <p>That is data analysis in a scientific setting: choosing a design, fitting a model, checking what the data supports, and reporting it carefully. I have built on it with the IBM Data Analyst Professional Certificate and SQL coursework. I applied Python and IBM Cognos Analytics to a survey dataset of 73,000+ responses for my certificate capstone, and built an independent project that benchmarks Eli Lilly against Pfizer from SEC filings, with Python and Power BI.</p>
         <p>I am focused on analytics roles in pharmaceutical, healthcare, CRO, clinical research and life-sciences environments, where scientific context and careful handling of data both matter. I am currently learning SAS.</p>
       </div>
     </div>
@@ -696,6 +808,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
         <a class="link-card" href="https://www.linkedin.com/in/shrikishan-b-2082722b5/" target="_blank" rel="noopener noreferrer">
           <span class="k">LinkedIn</span>
           <span class="v">linkedin.com/in/shrikishan-b-2082722b5</span>
+        </a>
+        <a class="link-card" href="https://github.com/Shrikishan35" target="_blank" rel="noopener noreferrer">
+          <span class="k">GitHub</span>
+          <span class="v">github.com/Shrikishan35</span>
         </a>
         <a class="link-card" href="https://orcid.org/0009-0009-6014-6291" target="_blank" rel="noopener noreferrer">
           <span class="k">ORCID</span>
