@@ -46,4 +46,4 @@ A static, single-page portfolio. No build step, no framework, no dependencies.
 
 ## Updating content later
 
-Edit `index.html`, save, and redeploy (`vercel --prod`, or push to GitHub). The site currently has no Download Resume button; it can be added back once a final resume PDF is ready.
+Edit `index.html`, save, and redeploy (`vercel --prod`, or push to GitHub). The site has a résumé download link pointing to `assets/resume.pdf`. Add the final PDF at that path when it is ready; the link is present but the file is not included yet.
