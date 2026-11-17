@@ -7,7 +7,7 @@ A static, single-page portfolio. No build step, no framework, no dependencies.
 | Path | Purpose |
 |---|---|
 | `index.html` | The whole site (HTML, CSS and a small amount of JavaScript) |
-| `assets/fonts/` | Self-hosted Source Serif 4 and IBM Plex Sans (woff2, latin subset) with their licences |
+| `assets/fonts/` | Self-hosted Bricolage Grotesque and IBM Plex Sans (woff2, latin subset) with their licences |
 | `assets/projects/` | Dashboard screenshots used in the two project case studies |
 | `assets/docs/` | Presentation PDFs linked from the projects (Eli Lilly vs Pfizer, Stack Overflow capstone) |
 | `favicon.svg`, `favicon.ico`, `apple-touch-icon.png` | Favicon set |
