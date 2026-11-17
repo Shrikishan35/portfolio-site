@@ -50,6 +50,7 @@
   ]
 }
 </script>
+<script>document.documentElement.className+=" js"</script>
 <style>
 @font-face{font-family:'Source Serif 4';font-style:normal;font-weight:200 900;font-display:swap;src:url(assets/fonts/source-serif-4-latin-wght-normal.woff2) format('woff2')}
 @font-face{font-family:'Source Serif 4';font-style:italic;font-weight:200 900;font-display:swap;src:url(assets/fonts/source-serif-4-latin-wght-italic.woff2) format('woff2')}
@@ -210,6 +211,43 @@ td.n+td.n,th.n+th.n{padding-left:16px}
 .bar-row.base .track i{background:var(--rule2)}
 .bar-row b{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
 
+
+/* project index and linked cells */
+td.stack{display:flex;flex-direction:column;gap:4px;border-bottom:0;padding-right:0}
+.tbl table td.stack{border-bottom:1px solid var(--rule)}
+td a,th a{font-weight:500}
+tbody th a{font-weight:600}
+
+/* tabs (shown only when JavaScript is available) */
+.tabs{display:none}
+.js .tabs{display:flex;flex-wrap:wrap;gap:2px 6px;border-bottom:1px solid var(--rule);margin-bottom:22px}
+.tab{font:500 .95rem/1.2 var(--sans);padding:10px 14px;background:none;border:0;border-bottom:3px solid transparent;color:var(--muted);cursor:pointer;margin-bottom:-1px}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--mark)}
+.panel[hidden]{display:none}
+.panel+.panel{margin-top:32px}
+.js .panel+.panel{margin-top:0}
+.panel h4{margin-bottom:16px}
+.cap{margin-top:14px;font-size:.92rem;color:var(--muted);max-width:44rem}
+.explorer,.dashboards{min-width:0}
+.explorer figcaption,.dashboards figcaption{margin-top:16px;font-size:.92rem;color:var(--muted);border-top:1px solid var(--rule);padding-top:10px}
+.explorer figcaption b,.dashboards figcaption b{color:var(--ink);font-weight:600}
+
+/* horizontal bar charts */
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 44px}
+.hb-title{font:600 1rem/1.3 var(--serif);margin:0 0 10px}
+.hb{display:grid;gap:7px;max-width:40rem}
+.hb-row{display:grid;grid-template-columns:128px minmax(0,1fr) 56px;align-items:center;gap:10px;font-size:.9rem;line-height:1.25}
+.hb-row .track{height:13px}
+.hb-row .track i{background:var(--lv2)}
+.hb-row.hl .track i{background:var(--lv4)}
+.hb-row.hl .lbl{font-weight:600}
+.hb-row b{text-align:right;font-variant-numeric:tabular-nums;font-weight:500;font-size:.88rem}
+.dashboards .frame{display:inline-block;max-width:100%;border:1px solid var(--rule);background:#fff;border-radius:3px;overflow:hidden}
+.dashboards .frame img{display:block;width:auto;max-width:100%;height:auto}
+
+.foot-links{display:flex;flex-wrap:wrap;gap:4px 18px}
+
 /* references */
 .refs{counter-reset:ref;display:flex;flex-direction:column}
 .refs li{counter-increment:ref;display:grid;grid-template-columns:44px minmax(0,1fr);padding:18px 0;border-bottom:1px solid var(--rule)}
@@ -245,6 +283,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
 
 /* responsive */
 @media (max-width:980px){
+  .pair{grid-template-columns:minmax(0,1fr)}
   .hero-grid{grid-template-columns:minmax(0,1fr)}
   .plate-fig{max-width:620px}
   .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -260,6 +299,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
   .site-header{position:static}
   .bar{padding-block:14px;flex-direction:column;align-items:flex-start;gap:8px}
   .rows>div{grid-template-columns:minmax(0,1fr);gap:4px}
+  .hb-row{grid-template-columns:104px minmax(0,1fr) 52px;gap:8px}
   .bar-row{grid-template-columns:minmax(0,1fr) 56px;gap:4px 12px}
   .bar-row .who{grid-column:1/-1;font-size:.92rem;color:var(--muted)}
 }
@@ -296,8 +336,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
     <div class="wrap">
       <div class="hero-grid">
         <div>
-          <h1 id="hero-title">M.Pharm Graduate | Pharmaceutical &amp; Healthcare Data Analytics</h1>
-          <p class="lede">Bengaluru-based M.Pharm graduate focused on pharmaceutical and healthcare analytics. Project highlights: a five-year Eli Lilly&ndash;Pfizer comparison and analysis of 73,000+ survey responses with Python, SQL and Power BI.</p>
+          <h1 id="hero-title">M.Pharm graduate building a career in healthcare data analytics</h1>
+          <p class="lede">Based in Bengaluru, with a pharmaceutics degree and hands-on analytics practice. Two end-to-end projects: a <a href="#project-pharma">five-year Eli Lilly and Pfizer benchmark</a> built in Python and Power BI, and an <a href="#project-survey">analysis of 65,437 Stack Overflow survey responses</a> built in Python, SQL and IBM Cognos.</p>
           <div class="actions">
             <a class="btn primary" href="#work">View projects</a>
             <a class="btn" href="assets/resume.pdf" download>Download r&eacute;sum&eacute; (PDF)</a>
@@ -332,7 +372,28 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
       <h2 id="work-title">Projects</h2>
       <div class="body">
 
-        <article class="project">
+        <div class="tbl">
+          <table>
+            <caption><b>Table 1.</b> The two analytics projects, with code and presentations</caption>
+            <thead><tr><th scope="col">Project</th><th scope="col">Question</th><th scope="col">Tools</th><th scope="col">Links</th></tr></thead>
+            <tbody>
+              <tr>
+                <th scope="row"><a href="#project-pharma">Eli Lilly vs Pfizer, FY2021&ndash;FY2025</a></th>
+                <td>How do two large drug makers compare on growth, profitability and reliance on a few products?</td>
+                <td>Python, Pandas, Power BI, SEC filings</td>
+                <td class="stack"><a href="https://github.com/Shrikishan35/Global-pharmaceutical-company-benchmarking" target="_blank" rel="noopener noreferrer">GitHub</a><a href="assets/docs/pharma-benchmarking-presentation.pdf" target="_blank" rel="noopener noreferrer">Presentation (PDF)</a></td>
+              </tr>
+              <tr>
+                <th scope="row"><a href="#project-survey">Stack Overflow Developer Survey, 65,437 responses</a></th>
+                <td>Which technologies do developers use now, and which do they want to use next?</td>
+                <td>Python, Pandas, SQL/SQLite, IBM Cognos Analytics</td>
+                <td class="stack"><a href="https://github.com/Shrikishan35/Stack-Overflow-Developer-Survey" target="_blank" rel="noopener noreferrer">GitHub</a><a href="assets/docs/stack-overflow-capstone-presentation.pdf" target="_blank" rel="noopener noreferrer">Presentation (PDF)</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <article class="project" id="project-pharma">
           <div>
             <h3>Eli Lilly and Pfizer: financial and product analysis, FY2021&ndash;FY2025</h3>
             <p class="meta">Independent portfolio project. Python, Pandas, Power BI and SEC filings.</p>
@@ -341,7 +402,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
 
           <div class="tbl">
             <table>
-              <caption><b>Table 1.</b> Headline metrics from the analysis</caption>
+              <caption><b>Table 2.</b> Headline metrics from the analysis</caption>
               <thead><tr><th scope="col">Metric</th><th scope="col" class="n">Eli Lilly</th><th scope="col" class="n">Pfizer</th></tr></thead>
               <tbody>
                 <tr><th scope="row">Revenue, FY2021</th><td class="n">$28.32B</td><td class="n">$81.29B</td></tr>
@@ -391,37 +452,164 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
 
           <p class="note">Lilly&rsquo;s therapeutic-area categories and Pfizer&rsquo;s commercial portfolio categories are different classification systems, so they are not directly comparable. Pfizer R&amp;D here excludes acquired in-process R&amp;D.</p>
           <div class="link-row">
-            <a href="assets/docs/pharma-benchmarking-presentation.pdf" target="_blank" rel="noopener noreferrer">View the five-slide presentation (PDF)</a>
+            <a href="assets/docs/pharma-benchmarking-presentation.pdf" target="_blank" rel="noopener noreferrer">Presentation (PDF, 5 slides)</a>
             <a href="https://github.com/Shrikishan35/Global-pharmaceutical-company-benchmarking" target="_blank" rel="noopener noreferrer">Code, data and Power BI file on GitHub</a>
           </div>
         </article>
 
-        <article class="project">
+        <article class="project" id="project-survey">
           <div>
-            <h3>Stack Overflow Developer Survey: 73,000+ responses</h3>
-            <p class="meta">IBM Data Analyst Professional Certificate capstone | Python and IBM Cognos Analytics</p>
+            <h3>Stack Overflow Developer Survey: 65,437 responses</h3>
+            <p class="meta">IBM Data Analyst Professional Certificate capstone. Python, Pandas, SQL/SQLite and IBM Cognos Analytics.</p>
           </div>
-          <p class="lead">Analysis of 73,000+ survey responses, presented in three IBM Cognos dashboard areas for a non-technical audience.</p>
-          <p class="note">Dataset: software developers, not healthcare. This project demonstrates transferable skills in large-dataset cleaning, trend analysis and dashboard reporting.</p>
+          <p class="lead">Which technologies do developers use today, and which do they want to use next? Survey responses were cleaned and explored in Python, queried with SQL, and presented in three IBM Cognos dashboard tabs.</p>
+          <p class="note">The dataset covers software developers, not healthcare. The project shows transferable skills: cleaning a large dataset, comparing trends and reporting them in dashboards.</p>
+
+          <figure class="explorer tabset">
+            <div class="tabs" role="tablist" aria-label="Survey results">
+              <button class="tab" role="tab" type="button" id="tab-lang" aria-controls="panel-lang">Languages</button>
+              <button class="tab" role="tab" type="button" id="tab-db" aria-controls="panel-db">Databases</button>
+              <button class="tab" role="tab" type="button" id="tab-jobs" aria-controls="panel-jobs">Job postings</button>
+              <button class="tab" role="tab" type="button" id="tab-salary" aria-controls="panel-salary">Salary</button>
+            </div>
+            <div class="panel" role="tabpanel" id="panel-lang" aria-labelledby="tab-lang">
+              <h4>Programming languages: current usage and future preference</h4>
+              <div class="pair">
+<div><h5 class="hb-title">Current usage</h5><ol class="hb">
+<li class="hb-row"><span class="lbl">JavaScript</span><span class="track"><i style="--w:100.0%"></i></span><b>37,492</b></li>
+<li class="hb-row"><span class="lbl">HTML/CSS</span><span class="track"><i style="--w:84.9%"></i></span><b>31,816</b></li>
+<li class="hb-row"><span class="lbl">Python</span><span class="track"><i style="--w:81.9%"></i></span><b>30,719</b></li>
+<li class="hb-row"><span class="lbl">SQL</span><span class="track"><i style="--w:81.8%"></i></span><b>30,682</b></li>
+<li class="hb-row"><span class="lbl">TypeScript</span><span class="track"><i style="--w:61.7%"></i></span><b>23,150</b></li>
+<li class="hb-row"><span class="lbl">Bash/Shell</span><span class="track"><i style="--w:54.4%"></i></span><b>20,412</b></li>
+<li class="hb-row"><span class="lbl">Java</span><span class="track"><i style="--w:48.6%"></i></span><b>18,239</b></li>
+<li class="hb-row"><span class="lbl">C#</span><span class="track"><i style="--w:43.5%"></i></span><b>16,318</b></li>
+<li class="hb-row"><span class="lbl">C++</span><span class="track"><i style="--w:36.9%"></i></span><b>13,827</b></li>
+<li class="hb-row"><span class="lbl">C</span><span class="track"><i style="--w:32.5%"></i></span><b>12,184</b></li>
+</ol></div>
+<div><h5 class="hb-title">Future preference</h5><ol class="hb">
+<li class="hb-row hl"><span class="lbl">Python</span><span class="track"><i style="--w:66.8%"></i></span><b>25,047</b></li>
+<li class="hb-row"><span class="lbl">JavaScript</span><span class="track"><i style="--w:63.4%"></i></span><b>23,774</b></li>
+<li class="hb-row"><span class="lbl">SQL</span><span class="track"><i style="--w:59.7%"></i></span><b>22,400</b></li>
+<li class="hb-row"><span class="lbl">HTML/CSS</span><span class="track"><i style="--w:55.3%"></i></span><b>20,721</b></li>
+<li class="hb-row"><span class="lbl">TypeScript</span><span class="track"><i style="--w:54.0%"></i></span><b>20,239</b></li>
+<li class="hb-row hl"><span class="lbl">Rust</span><span class="track"><i style="--w:46.0%"></i></span><b>17,232</b></li>
+<li class="hb-row hl"><span class="lbl">Go</span><span class="track"><i style="--w:36.9%"></i></span><b>13,837</b></li>
+<li class="hb-row"><span class="lbl">Bash/Shell</span><span class="track"><i style="--w:36.7%"></i></span><b>13,744</b></li>
+<li class="hb-row"><span class="lbl">C#</span><span class="track"><i style="--w:34.5%"></i></span><b>12,921</b></li>
+<li class="hb-row"><span class="lbl">C++</span><span class="track"><i style="--w:29.0%"></i></span><b>10,873</b></li>
+</ol></div>
+              </div>
+              <p class="cap">Respondents per language, top 10. Dark bars mark the movers the project highlights: Python rises from third to first, and Rust and Go enter the top 10.</p>
+            </div>
+            <div class="panel" role="tabpanel" id="panel-db" aria-labelledby="tab-db">
+              <h4>Databases: current usage and future preference</h4>
+              <div class="pair">
+<div><h5 class="hb-title">Current usage</h5><ol class="hb">
+<li class="hb-row"><span class="lbl">PostgreSQL</span><span class="track"><i style="--w:100.0%"></i></span><b>25,536</b></li>
+<li class="hb-row"><span class="lbl">MySQL</span><span class="track"><i style="--w:82.6%"></i></span><b>21,099</b></li>
+<li class="hb-row"><span class="lbl">SQLite</span><span class="track"><i style="--w:68.0%"></i></span><b>17,365</b></li>
+<li class="hb-row"><span class="lbl">Microsoft SQL Server</span><span class="track"><i style="--w:52.0%"></i></span><b>13,275</b></li>
+<li class="hb-row"><span class="lbl">MongoDB</span><span class="track"><i style="--w:50.9%"></i></span><b>13,007</b></li>
+<li class="hb-row"><span class="lbl">Redis</span><span class="track"><i style="--w:41.0%"></i></span><b>10,463</b></li>
+<li class="hb-row"><span class="lbl">MariaDB</span><span class="track"><i style="--w:35.2%"></i></span><b>8,991</b></li>
+<li class="hb-row"><span class="lbl">Elasticsearch</span><span class="track"><i style="--w:25.6%"></i></span><b>6,533</b></li>
+<li class="hb-row"><span class="lbl">Oracle</span><span class="track"><i style="--w:20.6%"></i></span><b>5,273</b></li>
+<li class="hb-row"><span class="lbl">DynamoDB</span><span class="track"><i style="--w:16.2%"></i></span><b>4,138</b></li>
+</ol></div>
+<div><h5 class="hb-title">Future preference</h5><ol class="hb">
+<li class="hb-row"><span class="lbl">PostgreSQL</span><span class="track"><i style="--w:94.0%"></i></span><b>24,005</b></li>
+<li class="hb-row hl"><span class="lbl">SQLite</span><span class="track"><i style="--w:52.8%"></i></span><b>13,489</b></li>
+<li class="hb-row"><span class="lbl">MySQL</span><span class="track"><i style="--w:48.0%"></i></span><b>12,269</b></li>
+<li class="hb-row"><span class="lbl">MongoDB</span><span class="track"><i style="--w:43.0%"></i></span><b>10,982</b></li>
+<li class="hb-row"><span class="lbl">Redis</span><span class="track"><i style="--w:42.5%"></i></span><b>10,847</b></li>
+<li class="hb-row"><span class="lbl">Microsoft SQL Server</span><span class="track"><i style="--w:31.0%"></i></span><b>7,905</b></li>
+<li class="hb-row"><span class="lbl">Elasticsearch</span><span class="track"><i style="--w:24.5%"></i></span><b>6,246</b></li>
+<li class="hb-row"><span class="lbl">MariaDB</span><span class="track"><i style="--w:23.3%"></i></span><b>5,947</b></li>
+<li class="hb-row"><span class="lbl">DynamoDB</span><span class="track"><i style="--w:13.7%"></i></span><b>3,503</b></li>
+<li class="hb-row hl"><span class="lbl">Supabase</span><span class="track"><i style="--w:11.5%"></i></span><b>2,930</b></li>
+</ol></div>
+              </div>
+              <p class="cap">Respondents per database, top 10. Dark bars mark SQLite, which rises from third to second, and Supabase, which enters the top 10. Oracle drops out of the future list.</p>
+            </div>
+            <div class="panel" role="tabpanel" id="panel-jobs" aria-labelledby="tab-jobs">
+              <h4>Job postings by location</h4>
+<div><h5 class="hb-title">Number of job postings, seven locations</h5><ol class="hb">
+<li class="hb-row hl"><span class="lbl">Washington DC</span><span class="track"><i style="--w:100.0%"></i></span><b>5,316</b></li>
+<li class="hb-row"><span class="lbl">Detroit</span><span class="track"><i style="--w:74.2%"></i></span><b>3,945</b></li>
+<li class="hb-row"><span class="lbl">Seattle</span><span class="track"><i style="--w:63.5%"></i></span><b>3,375</b></li>
+<li class="hb-row"><span class="lbl">New York</span><span class="track"><i style="--w:60.7%"></i></span><b>3,226</b></li>
+<li class="hb-row"><span class="lbl">Los Angeles</span><span class="track"><i style="--w:12.0%"></i></span><b>640</b></li>
+<li class="hb-row"><span class="lbl">San Francisco</span><span class="track"><i style="--w:8.2%"></i></span><b>435</b></li>
+<li class="hb-row"><span class="lbl">Austin</span><span class="track"><i style="--w:8.2%"></i></span><b>434</b></li>
+</ol></div>
+              <p class="cap">Washington DC has the most postings of the seven locations analyzed.</p>
+            </div>
+            <div class="panel" role="tabpanel" id="panel-salary" aria-labelledby="tab-salary">
+              <h4>Average annual salary by programming language</h4>
+<div><h5 class="hb-title">Average annual salary, top 10 languages</h5><ol class="hb">
+<li class="hb-row hl"><span class="lbl">Swift</span><span class="track"><i style="--w:100.0%"></i></span><b>130,801</b></li>
+<li class="hb-row"><span class="lbl">Python</span><span class="track"><i style="--w:87.4%"></i></span><b>114,383</b></li>
+<li class="hb-row"><span class="lbl">C++</span><span class="track"><i style="--w:87.1%"></i></span><b>113,865</b></li>
+<li class="hb-row"><span class="lbl">JavaScript</span><span class="track"><i style="--w:84.8%"></i></span><b>110,981</b></li>
+<li class="hb-row"><span class="lbl">Java</span><span class="track"><i style="--w:77.2%"></i></span><b>101,013</b></li>
+<li class="hb-row"><span class="lbl">Go</span><span class="track"><i style="--w:71.9%"></i></span><b>94,082</b></li>
+<li class="hb-row"><span class="lbl">R</span><span class="track"><i style="--w:70.4%"></i></span><b>92,037</b></li>
+<li class="hb-row"><span class="lbl">C#</span><span class="track"><i style="--w:67.8%"></i></span><b>88,726</b></li>
+<li class="hb-row"><span class="lbl">SQL</span><span class="track"><i style="--w:64.8%"></i></span><b>84,793</b></li>
+<li class="hb-row"><span class="lbl">PHP</span><span class="track"><i style="--w:64.8%"></i></span><b>84,727</b></li>
+</ol></div>
+              <p class="cap">The project does not state the currency or the pay period, so compare the languages with each other rather than reading the figures as absolute pay.</p>
+            </div>
+            <figcaption><b>Fig. 4.</b> Results from the capstone analysis, with respondent counts as reported in the project README.</figcaption>
+          </figure>
+
           <div class="cols">
             <div>
-              <h4>Analysis question</h4>
-              <p>What do the responses to a large developer survey show about technology use, employment and compensation?</p>
-              <h4 style="margin-top:24px">Key findings</h4>
+              <h4>Key findings</h4>
               <ul class="dots">
-                <li>JavaScript was the most widely used programming language.</li>
-                <li>PostgreSQL was the leading database.</li>
+                <li>JavaScript led current language use (37,492 respondents). Python moved from third place to first in future preference (25,047), and Rust and Go entered the future top 10.</li>
+                <li>PostgreSQL led databases for both current use (25,536) and future preference (24,005). SQLite rose from third to second, and Supabase entered the future top 10.</li>
+                <li>Among the ten languages analyzed, Swift had the highest average annual salary (130,801), followed by Python (114,383).</li>
+                <li>Washington DC had the most job postings of the seven locations analyzed (5,316).</li>
               </ul>
             </div>
             <div>
               <h4>Method</h4>
               <ol class="steps">
-                <li>Cleaned and transformed the survey responses.</li>
-                <li>Explored the full set of responses.</li>
-                <li>Analyzed trends in technology, employment and compensation.</li>
-                <li>Built dashboards in IBM Cognos Analytics (three dashboard areas), applying data visualization principles to communicate the findings clearly.</li>
+                <li>Collected data through APIs, web scraping and course-provided datasets.</li>
+                <li>Handled duplicates, missing values and inconsistent entries.</li>
+                <li>Explored distributions, outliers and correlations, and queried the data with SQL/SQLite.</li>
+                <li>Charted the trends in Python.</li>
+                <li>Built three IBM Cognos dashboard tabs and wrote up the findings and implications.</li>
               </ol>
             </div>
+          </div>
+
+          <figure class="dashboards tabset">
+            <div class="tabs" role="tablist" aria-label="Cognos dashboard tabs">
+              <button class="tab" role="tab" type="button" id="dtab-current" aria-controls="dpanel-current">Current usage</button>
+              <button class="tab" role="tab" type="button" id="dtab-future" aria-controls="dpanel-future">Future trends</button>
+              <button class="tab" role="tab" type="button" id="dtab-demo" aria-controls="dpanel-demo">Demographics</button>
+            </div>
+            <div class="panel" role="tabpanel" id="dpanel-current" aria-labelledby="dtab-current">
+              <div class="frame"><img src="assets/projects/survey-dashboard-current.png" width="605" height="360" loading="lazy" decoding="async" alt="IBM Cognos dashboard tab on current technology usage: top 10 languages, databases, platforms and web frameworks that respondents have worked with."></div>
+              <p class="cap">Tab 1 covers the languages, databases, cloud platforms and web frameworks respondents use now. JavaScript, HTML/CSS and Python are among the most widely used, PostgreSQL and MySQL lead the databases, and AWS is a prominent cloud platform.</p>
+            </div>
+            <div class="panel" role="tabpanel" id="dpanel-future" aria-labelledby="dtab-future">
+              <div class="frame"><img src="assets/projects/survey-dashboard-future.png" width="592" height="346" loading="lazy" decoding="async" alt="IBM Cognos dashboard tab on future technology trends: top 10 languages, databases, platforms and web frameworks that respondents want to work with."></div>
+              <p class="cap">Tab 2 covers what respondents want to use next. Python has the strongest future preference among languages, PostgreSQL leads the databases, AWS leads the cloud platforms, and Spring Boot and React are prominent web frameworks.</p>
+            </div>
+            <div class="panel" role="tabpanel" id="dpanel-demo" aria-labelledby="dtab-demo">
+              <div class="frame"><img src="assets/projects/survey-dashboard-demographics.png" width="597" height="351" loading="lazy" decoding="async" alt="IBM Cognos dashboard tab on developer demographics: respondent age, country, formal education level and employment status."></div>
+              <p class="cap">Tab 3 covers who responded, by age, country, education and employment. Respondents are concentrated in the 35&ndash;44 and 45&ndash;54 age groups, the United States is the largest country group, and bachelor&rsquo;s degree holders and full-time employees are the largest education and employment groups.</p>
+            </div>
+            <figcaption><b>Fig. 5.</b> The three IBM Cognos Analytics dashboard tabs.</figcaption>
+          </figure>
+
+          <div class="link-row">
+            <a href="assets/docs/stack-overflow-capstone-presentation.pdf" target="_blank" rel="noopener noreferrer">Capstone presentation (PDF, 19 slides)</a>
+            <a href="https://github.com/Shrikishan35/Stack-Overflow-Developer-Survey" target="_blank" rel="noopener noreferrer">Notebooks and write-up on GitHub</a>
           </div>
         </article>
 
@@ -499,15 +687,15 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
     <div class="wrap sec-grid">
       <h2 id="bridge-title">From lab to data</h2>
       <div class="body">
-        <div class="prose"><p>The same working habits carry across, from planning experiments in the lab to preparing datasets for analysis.</p></div>
+        <div class="prose"><p>Planning an experiment and preparing a dataset follow the same discipline: design it, check it, then report it clearly. The table sets the dissertation beside the two analytics projects.</p></div>
         <div class="tbl">
           <table>
-            <caption><b>Table 2.</b> The same steps in the dissertation and in the survey capstone</caption>
+            <caption><b>Table 3.</b> The same steps in the dissertation and in the analytics projects</caption>
             <thead><tr><th scope="col">Step</th><th scope="col">In the lab</th><th scope="col">In analytics</th></tr></thead>
             <tbody>
-              <tr><th scope="row">Prepare</th><td>Planned experiments with Central Composite Design and a 3&sup2; factorial design.</td><td>Cleaned and transformed 73,000+ survey responses.</td></tr>
-              <tr><th scope="row">Analyze</th><td>Fitted regression-based models to optimize parameters and predict outcomes.</td><td>Explored the data and analyzed technology, employment and compensation trends.</td></tr>
-              <tr><th scope="row">Report</th><td>Kept accurate, audit-ready documentation.</td><td>Built three dashboard areas for a non-technical audience.</td></tr>
+              <tr><th scope="row">Prepare</th><td>Planned experiments with Central Composite Design and a 3&sup2; factorial design.</td><td>Extracted and validated SEC filing data, and cleaned 65,437 survey responses.</td></tr>
+              <tr><th scope="row">Analyze</th><td>Fitted regression-based models to optimize parameters and predict outcomes.</td><td>Compared growth, margins and product concentration across two companies, and explored technology trends in the survey.</td></tr>
+              <tr><th scope="row">Report</th><td>Kept accurate, audit-ready documentation.</td><td>Built Power BI and IBM Cognos dashboards that summarize the findings for non-technical readers.</td></tr>
             </tbody>
           </table>
         </div>
@@ -521,11 +709,11 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
       <h2 id="skills-title">Skills</h2>
       <div class="body">
         <dl class="rows">
-          <div><dt>Data analytics</dt><dd>Data cleaning, data transformation, exploratory data analysis, statistical and regression-based analysis, large-dataset analysis</dd></div>
-          <div><dt>Python</dt><dd>Python, Pandas, NumPy, Matplotlib, Requests (API data extraction)</dd></div>
-          <div><dt>SQL</dt><dd>Joins, subqueries, CTEs, window functions, aggregations, views, stored procedures, performance tuning, introductory data modeling</dd></div>
-          <div><dt>BI and visualization</dt><dd>Power BI, IBM Cognos Analytics, dashboard development, data visualization principles</dd></div>
-          <div><dt>Pharmaceutical and research</dt><dd>Pharmaceutics, pharmaceutical formulation, novel drug delivery, Design of Experiments (CCD, 3&sup2; factorial), experimental data analysis, scientific literature review, audit-ready documentation</dd></div>
+          <div><dt>Data analytics</dt><dd><p>Data cleaning, data transformation, exploratory data analysis, statistical and regression-based analysis, large-dataset analysis</p><p class="muted small">Used in <a href="#project-pharma">Eli Lilly vs Pfizer</a> and the <a href="#project-survey">Stack Overflow survey</a>.</p></dd></div>
+          <div><dt>Python</dt><dd><p>Python, Pandas, NumPy, Matplotlib, Requests (API data extraction)</p><p class="muted small">Used in both projects.</p></dd></div>
+          <div><dt>SQL</dt><dd><p>Joins, subqueries, CTEs, window functions, aggregations, views, stored procedures, performance tuning, introductory data modeling</p><p class="muted small">Used in the <a href="#project-survey">Stack Overflow survey</a> (SQL/SQLite queries) and in SQLNest coursework.</p></dd></div>
+          <div><dt>BI and visualization</dt><dd><p>Power BI, IBM Cognos Analytics, dashboard development, data visualization principles</p><p class="muted small">Power BI in <a href="#project-pharma">Eli Lilly vs Pfizer</a>; IBM Cognos in the <a href="#project-survey">Stack Overflow survey</a>.</p></dd></div>
+          <div><dt>Pharmaceutical and research</dt><dd><p>Pharmaceutics, pharmaceutical formulation, novel drug delivery, Design of Experiments (CCD, 3&sup2; factorial), experimental data analysis, scientific literature review, audit-ready documentation</p><p class="muted small">Used in the <a href="#research">dissertation and publications</a>.</p></dd></div>
           <div><dt>Supporting</dt><dd>Analytical problem-solving, communicating complex findings, attention to detail, generative AI concepts, basic ML and AI awareness</dd></div>
           <div><dt>Learning now</dt><dd>SAS</dd></div>
         </dl>
@@ -540,7 +728,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
       <div class="body">
         <div class="prose">
           <p>M.Pharm in Pharmaceutics, based in Bengaluru. Dissertation work covered experimental design, regression analysis and structured documentation.</p>
-          <p>Additional training includes the IBM Data Analyst Professional Certificate and SQL coursework. Portfolio projects include a Python and Power BI analysis of five years of Eli Lilly and Pfizer filings, and an IBM Cognos analysis of 73,000+ survey responses.</p>
+          <p>Additional training includes the IBM Data Analyst Professional Certificate and SQL coursework. Portfolio projects include a <a href="#project-pharma">Python and Power BI benchmark of Eli Lilly and Pfizer</a> from five years of SEC filings, and a <a href="#project-survey">Python, SQL and IBM Cognos analysis of 65,437 survey responses</a>. Code for both is on <a href="https://github.com/Shrikishan35" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
           <p>Seeking analyst roles in pharmaceutical, healthcare, CRO and clinical research teams, where pharmaceutical knowledge and careful data analysis are valuable.</p>
         </div>
 
@@ -601,7 +789,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
     <div class="wrap sec-grid">
       <h2 id="contact-title">Contact</h2>
       <div class="body" style="gap:28px">
-        <p class="lead">Open to analyst roles in pharmaceutical, healthcare, CRO and clinical research. For opportunities, email or connect on LinkedIn.</p>
+        <p class="lead">Open to entry-level analyst roles in pharmaceutical, healthcare, CRO and clinical research teams. Email is the quickest way to reach me, and I am also on LinkedIn.</p>
         <div class="email-line">
           <a class="email-big" id="email-link" href="mailto:kishanpatel6089@gmail.com">kishanpatel6089@gmail.com</a>
           <button class="btn copy-btn" id="copy-email" type="button" data-email="kishanpatel6089@gmail.com">Copy email</button>
@@ -621,7 +809,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
 <footer>
   <div class="wrap">
     <span>Shrikishan B, Bengaluru, India</span>
-    <span>M.Pharm (Pharmaceutics)</span>
+    <span class="foot-links"><a href="#work">Projects</a><a href="https://github.com/Shrikishan35" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/shrikishan-b-2082722b5/" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
   </div>
 </footer>
 
@@ -707,6 +895,35 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
     });
     svg.addEventListener('mouseleave', function () { readout.textContent = idle; });
   }
+})();
+
+/* tabs: show one panel at a time, with arrow-key support */
+(function () {
+  document.querySelectorAll('.tabset').forEach(function (set) {
+    var tabs = [].slice.call(set.querySelectorAll('[role="tab"]'));
+    var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls')); });
+    function show(i, focus) {
+      tabs.forEach(function (t, j) {
+        var on = i === j;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        panels[j].hidden = !on;
+      });
+      if (focus) tabs[i].focus();
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { show(i); });
+      t.addEventListener('keydown', function (e) {
+        var n = null;
+        if (e.key === 'ArrowRight') n = (i + 1) % tabs.length;
+        else if (e.key === 'ArrowLeft') n = (i - 1 + tabs.length) % tabs.length;
+        else if (e.key === 'Home') n = 0;
+        else if (e.key === 'End') n = tabs.length - 1;
+        if (n !== null) { e.preventDefault(); show(n, true); }
+      });
+    });
+    show(0);
+  });
 })();
 
 /* contact: copy email */
