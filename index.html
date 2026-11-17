@@ -369,6 +369,16 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
 .skillrow.minor .skilllist li{font-size:1.1rem;font-weight:500}
 .skills-note{max-width:42rem}
 
+
+/* collapsible detail (JavaScript adds the button; without it everything stays visible) */
+.more{display:flex;flex-direction:column;gap:36px;min-width:0}
+.more[hidden]{display:none}
+.more-btn{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border:1.5px solid var(--ink);border-radius:999px;background:transparent;color:var(--ink);font:500 .98rem/1.2 var(--sans);cursor:pointer;transition:background .15s,color .15s}
+.more-btn:hover{background:var(--ink);color:var(--on-ink)}
+.more-btn::after{content:"";width:.5em;height:.5em;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s}
+.more-btn[aria-expanded="true"]::after{transform:rotate(-135deg) translateY(-2px)}
+@media print{.more[hidden]{display:flex}.more-btn{display:none}}
+
 /* responsive */
 @media (max-width:980px){
   .pair{grid-template-columns:minmax(0,1fr)}
@@ -408,6 +418,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .hf-track i{animation:none}
+  .more-btn::after{transition:none}
   .site-header,.site-header::before,.skilllist li{transition:none}
   .skilllist li:hover{transform:none}
 }
@@ -511,6 +522,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
           </div>
           <p class="lead">Five years of financial and product revenue data from SEC filings, cleaned and checked in Python. Two Power BI dashboards compare revenue growth, profitability, R&amp;D spending and product concentration.</p>
 
+          <div class="more" data-label="project details">
+
           <div class="tbl">
             <table>
               <caption><b>Table 2.</b> Headline metrics from the analysis</caption>
@@ -566,6 +579,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
             <a href="assets/docs/pharma-benchmarking-presentation.pdf" target="_blank" rel="noopener noreferrer">Presentation (PDF, 5 slides)</a>
             <a href="https://github.com/Shrikishan35/Global-pharmaceutical-company-benchmarking" target="_blank" rel="noopener noreferrer">Code, data and Power BI file on GitHub</a>
           </div>
+          </div>
         </article>
 
         <article class="project" id="project-survey">
@@ -575,6 +589,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
           </div>
           <p class="lead">Which technologies do developers use today, and which do they want to use next? Survey responses were cleaned and explored in Python, queried with SQL, and presented in three IBM Cognos dashboard tabs.</p>
           <p class="note">The dataset covers software developers, not healthcare. The project shows transferable skills: cleaning a large dataset, comparing trends and reporting them in dashboards.</p>
+
+          <div class="more" data-label="project details">
 
           <figure class="explorer tabset">
             <div class="tabs" role="tablist" aria-label="Survey results">
@@ -722,6 +738,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
             <a href="assets/docs/stack-overflow-capstone-presentation.pdf" target="_blank" rel="noopener noreferrer">Capstone presentation (PDF, 19 slides)</a>
             <a href="https://github.com/Shrikishan35/Stack-Overflow-Developer-Survey" target="_blank" rel="noopener noreferrer">Notebooks and write-up on GitHub</a>
           </div>
+          </div>
         </article>
 
       </div>
@@ -752,6 +769,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
             <p class="lead">Eletriptan hydrobromide-loaded solid lipid nanoparticles (ESLN) were developed and optimized, then built into a thermosensitive intranasal in situ gel to test enhanced brain delivery for migraine management.</p>
             <p class="note">The work covered formulation development, Design of Experiments, statistical optimization, physicochemical characterization, ex vivo permeation studies and in vivo brain biodistribution analysis.</p>
           </div>
+
+          <div class="more" data-label="study details: design, results and tools">
 
           <div class="rsub">
             <h3>Experimental design and statistical analysis</h3>
@@ -853,6 +872,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
               <div><h4>Software</h4><ul class="taglist"><li>Design-Expert / Stat-Ease 360</li><li>OriginPro</li></ul></div>
               <div><h4>Instruments and methods</h4><ul class="taglist"><li>HPLC</li><li>UV-Visible spectrophotometry</li><li>Malvern Zetasizer</li><li>FTIR</li><li>DSC</li><li>SEM</li><li>Franz diffusion cell</li></ul></div>
             </div>
+          </div>
           </div>
         </article>
 
@@ -1125,6 +1145,36 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
   nav.addEventListener('click', function (e) { if (e.target.closest('a')) set(false); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && nav.classList.contains('open')) { set(false); btn.focus(); } });
   window.addEventListener('resize', function () { if (window.innerWidth > 820) set(false); });
+})();
+
+/* collapsible detail: closed by default, one button per project */
+(function () {
+  var blocks = document.querySelectorAll('.more');
+  blocks.forEach(function (box, i) {
+    var id = 'more-' + (i + 1), label = box.getAttribute('data-label') || 'details';
+    box.id = id;
+    var btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'more-btn';
+    btn.setAttribute('aria-controls', id);
+    function set(open) {
+      box.hidden = !open;
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.textContent = (open ? 'Hide ' : 'Show ') + label;
+    }
+    btn.addEventListener('click', function () {
+      var wasOpen = !box.hidden; set(!wasOpen);
+      if (wasOpen) { var art = box.closest('article'); if (art) art.scrollIntoView({ block: 'start' }); }
+    });
+    box.parentNode.insertBefore(btn, box);
+    set(false);
+  });
+  /* open the right block when a link or the address bar points inside one */
+  function reveal() {
+    var h = location.hash && document.getElementById(location.hash.slice(1));
+    var box = h && h.closest && h.closest('.more');
+    if (box && box.hidden) { box.previousElementSibling.click(); h.scrollIntoView(); }
+  }
+  window.addEventListener('hashchange', reveal); reveal();
 })();
 </script>
 </body>
